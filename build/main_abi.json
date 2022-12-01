@@ -1,0 +1,674 @@
+[
+    {
+        "members": [
+            {
+                "name": "id",
+                "offset": 0,
+                "type": "felt"
+            },
+            {
+                "name": "executor",
+                "offset": 1,
+                "type": "felt"
+            },
+            {
+                "name": "execute_param_len",
+                "offset": 2,
+                "type": "felt"
+            },
+            {
+                "name": "creator",
+                "offset": 3,
+                "type": "felt"
+            },
+            {
+                "name": "proposalType",
+                "offset": 4,
+                "type": "felt"
+            },
+            {
+                "name": "startTimestamp",
+                "offset": 5,
+                "type": "felt"
+            },
+            {
+                "name": "endTimestamp",
+                "offset": 6,
+                "type": "felt"
+            },
+            {
+                "name": "executionTime",
+                "offset": 7,
+                "type": "felt"
+            },
+            {
+                "name": "forVotes",
+                "offset": 8,
+                "type": "felt"
+            },
+            {
+                "name": "againstVotes",
+                "offset": 9,
+                "type": "felt"
+            },
+            {
+                "name": "isExecuted",
+                "offset": 10,
+                "type": "felt"
+            },
+            {
+                "name": "isCancelled",
+                "offset": 11,
+                "type": "felt"
+            },
+            {
+                "name": "strategy",
+                "offset": 12,
+                "type": "felt"
+            }
+        ],
+        "name": "Proposal",
+        "size": 13,
+        "type": "struct"
+    },
+    {
+        "members": [
+            {
+                "name": "voteFrom",
+                "offset": 0,
+                "type": "felt"
+            },
+            {
+                "name": "voteProposalNonce",
+                "offset": 1,
+                "type": "felt"
+            },
+            {
+                "name": "voteResult",
+                "offset": 2,
+                "type": "felt"
+            },
+            {
+                "name": "votingPower",
+                "offset": 3,
+                "type": "felt"
+            }
+        ],
+        "name": "Vote",
+        "size": 4,
+        "type": "struct"
+    },
+    {
+        "data": [
+            {
+                "name": "user_account",
+                "type": "felt"
+            }
+        ],
+        "keys": [],
+        "name": "ApproverAdded",
+        "type": "event"
+    },
+    {
+        "data": [
+            {
+                "name": "user_account",
+                "type": "felt"
+            }
+        ],
+        "keys": [],
+        "name": "ApproverRemoved",
+        "type": "event"
+    },
+    {
+        "data": [
+            {
+                "name": "proposalId",
+                "type": "felt"
+            },
+            {
+                "name": "voter",
+                "type": "felt"
+            },
+            {
+                "name": "support",
+                "type": "felt"
+            },
+            {
+                "name": "votingPower",
+                "type": "felt"
+            }
+        ],
+        "keys": [],
+        "name": "VoteEmitted",
+        "type": "event"
+    },
+    {
+        "data": [
+            {
+                "name": "proposalId",
+                "type": "felt"
+            },
+            {
+                "name": "executionTime",
+                "type": "felt"
+            },
+            {
+                "name": "user",
+                "type": "felt"
+            }
+        ],
+        "keys": [],
+        "name": "ProposalQueued",
+        "type": "event"
+    },
+    {
+        "data": [
+            {
+                "name": "proposalId",
+                "type": "felt"
+            }
+        ],
+        "keys": [],
+        "name": "ProposalExecuted",
+        "type": "event"
+    },
+    {
+        "data": [
+            {
+                "name": "proposalId",
+                "type": "felt"
+            }
+        ],
+        "keys": [],
+        "name": "ProposalCancelled",
+        "type": "event"
+    },
+    {
+        "data": [
+            {
+                "name": "proposalId",
+                "type": "felt"
+            },
+            {
+                "name": "creator",
+                "type": "felt"
+            },
+            {
+                "name": "startTimestamp",
+                "type": "felt"
+            },
+            {
+                "name": "endTimestamp",
+                "type": "felt"
+            },
+            {
+                "name": "strategy",
+                "type": "felt"
+            }
+        ],
+        "keys": [],
+        "name": "ProposalCreated",
+        "type": "event"
+    },
+    {
+        "inputs": [
+            {
+                "name": "_governanceStrategy",
+                "type": "felt"
+            },
+            {
+                "name": "__votingDelay",
+                "type": "felt"
+            },
+            {
+                "name": "executor",
+                "type": "felt"
+            },
+            {
+                "name": "firstSignerAddress",
+                "type": "felt"
+            },
+            {
+                "name": "secondSignerAddress",
+                "type": "felt"
+            },
+            {
+                "name": "initialApprover",
+                "type": "felt"
+            }
+        ],
+        "name": "constructor",
+        "outputs": [],
+        "type": "constructor"
+    },
+    {
+        "inputs": [
+            {
+                "name": "proposal_id",
+                "type": "felt"
+            }
+        ],
+        "name": "getProposalState",
+        "outputs": [
+            {
+                "name": "state",
+                "type": "felt"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "name": "_proposalId",
+                "type": "felt"
+            }
+        ],
+        "name": "returnExecutionLength",
+        "outputs": [
+            {
+                "name": "length",
+                "type": "felt"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "name": "_proposalId",
+                "type": "felt"
+            },
+            {
+                "name": "nonce",
+                "type": "felt"
+            }
+        ],
+        "name": "returnProposalTarget",
+        "outputs": [
+            {
+                "name": "target",
+                "type": "felt"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "name": "_proposalId",
+                "type": "felt"
+            },
+            {
+                "name": "nonce",
+                "type": "felt"
+            }
+        ],
+        "name": "returnProposalSelector",
+        "outputs": [
+            {
+                "name": "selector",
+                "type": "felt"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "name": "_proposalId",
+                "type": "felt"
+            },
+            {
+                "name": "nonce",
+                "type": "felt"
+            }
+        ],
+        "name": "returnProposalCalldata",
+        "outputs": [
+            {
+                "name": "calldata",
+                "type": "felt"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "returnGovernanceStrategy",
+        "outputs": [
+            {
+                "name": "strategyAddress",
+                "type": "felt"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "returnTimelocker",
+        "outputs": [
+            {
+                "name": "timeLocker",
+                "type": "felt"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "returnproposalNonce",
+        "outputs": [
+            {
+                "name": "proposalNonce",
+                "type": "felt"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "name": "proposalNonce",
+                "type": "felt"
+            }
+        ],
+        "name": "returnProposalByNonce",
+        "outputs": [
+            {
+                "name": "proposalDetails",
+                "type": "Proposal"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "name": "proposalId",
+                "type": "felt"
+            }
+        ],
+        "name": "returnVoteCountByProposal",
+        "outputs": [
+            {
+                "name": "voteCount",
+                "type": "felt"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "name": "user_account",
+                "type": "felt"
+            }
+        ],
+        "name": "returnUserVoteCount",
+        "outputs": [
+            {
+                "name": "voteCount",
+                "type": "felt"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "name": "user_account",
+                "type": "felt"
+            },
+            {
+                "name": "proposal_id",
+                "type": "felt"
+            }
+        ],
+        "name": "returnUserVoteByProposal",
+        "outputs": [
+            {
+                "name": "voteDetail",
+                "type": "Vote"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "getProposals",
+        "outputs": [
+            {
+                "name": "proposals_len",
+                "type": "felt"
+            },
+            {
+                "name": "proposals",
+                "type": "Proposal*"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "name": "proposal_id",
+                "type": "felt"
+            }
+        ],
+        "name": "getVotesByProposal",
+        "outputs": [
+            {
+                "name": "votes_len",
+                "type": "felt"
+            },
+            {
+                "name": "votes",
+                "type": "Vote*"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "name": "user_account",
+                "type": "felt"
+            }
+        ],
+        "name": "getVotesByUser",
+        "outputs": [
+            {
+                "name": "user_vote_len",
+                "type": "felt"
+            },
+            {
+                "name": "user_vote",
+                "type": "Vote*"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "name": "_executor",
+                "type": "felt"
+            },
+            {
+                "name": "targets_len",
+                "type": "felt"
+            },
+            {
+                "name": "targets",
+                "type": "felt*"
+            },
+            {
+                "name": "selector_len",
+                "type": "felt"
+            },
+            {
+                "name": "selector",
+                "type": "felt*"
+            },
+            {
+                "name": "calldatas_len",
+                "type": "felt"
+            },
+            {
+                "name": "calldatas",
+                "type": "felt*"
+            },
+            {
+                "name": "_proposalType",
+                "type": "felt"
+            }
+        ],
+        "name": "createProposal",
+        "outputs": [
+            {
+                "name": "res",
+                "type": "felt"
+            }
+        ],
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "name": "_proposalId",
+                "type": "felt"
+            }
+        ],
+        "name": "cancelProposal",
+        "outputs": [],
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "name": "_proposalId",
+                "type": "felt"
+            }
+        ],
+        "name": "queueProposal",
+        "outputs": [],
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "name": "_proposalId",
+                "type": "felt"
+            }
+        ],
+        "name": "executeProposal",
+        "outputs": [],
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "name": "proposalId",
+                "type": "felt"
+            },
+            {
+                "name": "support",
+                "type": "felt"
+            }
+        ],
+        "name": "submitVote",
+        "outputs": [],
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "name": "proposalId",
+                "type": "felt"
+            },
+            {
+                "name": "support",
+                "type": "felt"
+            },
+            {
+                "name": "sig",
+                "type": "(felt, felt)"
+            }
+        ],
+        "name": "submitVoteBySignature",
+        "outputs": [],
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "name": "__votingDelay",
+                "type": "felt"
+            }
+        ],
+        "name": "setVotingDelay",
+        "outputs": [],
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "name": "_strategy",
+                "type": "felt"
+            }
+        ],
+        "name": "setGovernanceStrategy",
+        "outputs": [],
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "name": "executor",
+                "type": "felt"
+            }
+        ],
+        "name": "setExecutor",
+        "outputs": [],
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "name": "executor",
+                "type": "felt"
+            }
+        ],
+        "name": "unauthorizeExecutor",
+        "outputs": [],
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "name": "executor",
+                "type": "felt"
+            }
+        ],
+        "name": "authorizeExecutor",
+        "outputs": [],
+        "type": "function"
+    }
+]
